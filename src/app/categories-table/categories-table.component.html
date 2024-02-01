@@ -1,0 +1,43 @@
+<div class="categories-table-container">
+  <span class="title">Word Categories</span>
+  <table mat-table class="table"  [dataSource]="dataSource" matSort (matSortChange)="sortData()"  class="mat-elevation-z8">
+
+    <ng-container class="colum" matColumnDef="categoryName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Category Name">Category Name</th>
+      <td mat-cell *matCellDef="let category">{{ category.categoryName }}</td>
+    </ng-container>
+
+    <ng-container class="colum" matColumnDef="numberOfWords">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Number of Words">Number of Words</th>
+      <td mat-cell *matCellDef="let category">{{ calculateNumberOfWords(category)}}</td>
+    </ng-container>
+
+    <ng-container class="colum" matColumnDef="lastModificationDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Last Modified">Last Modified</th>
+      <td mat-cell *matCellDef="let category">{{ getDateAsString() }}</td>
+    </ng-container>
+
+    <ng-container class="colum" matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let category">
+        <button mat-icon-button [routerLink]="['/editcategory', category.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteCategory(category.id, category.fullName())">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <button class="new-category-btn"
+          routerLink='/newcategoryform'
+          mat-button 
+          routerLink="/newcategory">
+    Add a new category
+  </button>
+</div>

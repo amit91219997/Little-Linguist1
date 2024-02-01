@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(68, 121, 68);
+    padding: 20px 0;
+    gap: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+ .title {
+    color:white;
+    font-weight:normal;
+    }
+
+    .help-icon{
+        color: white;
+    }
