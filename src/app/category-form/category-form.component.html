@@ -1,4 +1,5 @@
-<form #demoForm="ngForm" (ngSubmit)="onSubmitRegistration(demoForm)" novalidate>
+<div class="page-content">
+<form #demoForm="ngForm" (ngSubmit)="onSubmitRegistration(demoForm)" novalidate >
   <div class="form-group">
     <mat-label class="custom-label">Category name:</mat-label>
     <mat-form-field appearance="outline">
@@ -23,6 +24,7 @@
       <input matInput [(ngModel)]="currentCategory.targetLanguage" name="targetLanguage" readonly>
     </mat-form-field>
   </div>
+
 
   <div ngModelGroup="words"  #wordsGroup="ngModelGroup" [ngClass]="{ 'no-words-error': wordsGroup?.control?.hasError('noWords') }">
     <div class="words">
@@ -67,4 +69,4 @@
     </button>
   </div>
 </form>
-
+</div>

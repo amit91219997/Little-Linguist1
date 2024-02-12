@@ -1,6 +1,15 @@
+.page-content {
+    padding-bottom: 250px; 
+  }
+
+
+
 .form-group {
     margin-bottom: 20px;
     margin-right: 50px;
+    flex: 1;
+
+    
 }
 
 .custom-label {

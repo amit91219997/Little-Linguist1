@@ -1,0 +1,23 @@
+<div class="translation-container">
+  <h2>Translate {{ category.categoryName }}</h2>
+  <div *ngFor="let word of category.Words; let i = index" class="word-container">
+    <div class="word-pair">
+      <label>Source Word:</label>
+      <input type="text" [value]="word.sourceWord" readonly>
+    </div>
+    <div class="word-pair">
+      <label>Translation:</label>
+      <input type="text" [(ngModel)]="word.translation">
+      <span *ngIf="showTestResults" [ngClass]="{'correct': word.targetWord === word.translation, 'incorrect': word.targetWord !== word.translation}">
+        {{ word.targetWord === word.translation ? '✔' : '✘' }}
+      </span>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="test-button" (click)="checkTranslations()">Check</button>
+    <button class="reveal-button" (click)="revealAllTranslations()">Translate All</button>
+  </div>
+  <div *ngIf="showTestResults">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

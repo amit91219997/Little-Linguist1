@@ -121,4 +121,7 @@ export class CategoryFormComponent implements OnInit, Validator    {
     this.wordsGroup?.control.markAsDirty();
 
   }
-}
+
+  
+  }
+  
